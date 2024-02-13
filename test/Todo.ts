@@ -38,10 +38,12 @@ describe("Todo", function () {
 
       const updateTitle = await toDo.updateTitle(0, "New task");
       const updateDescription = await toDo.updateDescription(0, "A new Description");
+      const toggleCompleted = await toDo.toggleCompleted(0);
+      
       expect((await toDo.todoList(0)).title).to.equal("New task");
+      expect((await toDo.todoList(0)).description).to.equal("A new Description");
+      expect((await toDo.todoList(0)).completed).to.equal(true);
 
-      expect((await toDo.todoList(0)).description).to.equal("A new Description")
-    
     });
   });
   
