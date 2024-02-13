@@ -28,6 +28,8 @@ describe("Todo", function () {
       // const updateDescription = await toDo.updateDescription(1, "Some description");
 
       expect((await toDo.todoList(0)).title).to.equal("wash");
+      expect((await toDo.todoList(0)).description).to.equal("Sample Description");
+      expect((await toDo.todoList(0)).completed).to.equal(false);
       // expect(await updateTitle).to.equal(1, "Some description");
     });
   });
