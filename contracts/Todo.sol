@@ -23,6 +23,6 @@ contract Todo {
     todoList[_i].title = _newTitle;
  }
  function updateDescription(uint _i, string memory _newDescription) external{
-    todoList[_i].title = _newDescription;
+    todoList[_i].description = _newDescription;
  }
 }
