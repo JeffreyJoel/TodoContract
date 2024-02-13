@@ -8,21 +8,31 @@ contract Todo {
         string description;
         bool completed;
     }
- toDo[] public todoList;
+    toDo[] public todoList;
 
- function createNewTodo(string memory _title, string memory _description) external{
-    todoList.push(toDo(_title, _description, false));
- }
- function toggleCompleted(uint _i) external{
-    todoList[_i].completed =  !todoList[_i].completed;
- }
-  function deleteTodoItem(uint _i) external{
-    delete todoList[_i];
- }
-   function updateTitle(uint _i, string memory _newTitle) external{
-    todoList[_i].title = _newTitle;
- }
- function updateDescription(uint _i, string memory _newDescription) external{
-    todoList[_i].description = _newDescription;
- }
+    function createNewTodo(
+        string memory _title,
+        string memory _description
+    ) external {
+        todoList.push(toDo(_title, _description, false));
+    }
+
+    function toggleCompleted(uint _i) external {
+        todoList[_i].completed = !todoList[_i].completed;
+    }
+
+    function deleteTodoItem(uint _i) external {
+        delete todoList[_i];
+    }
+
+    function updateTitle(uint _i, string memory _newTitle) external {
+        todoList[_i].title = _newTitle;
+    }
+
+    function updateDescription(
+        uint _i,
+        string memory _newDescription
+    ) external {
+        todoList[_i].description = _newDescription;
+    }
 }
