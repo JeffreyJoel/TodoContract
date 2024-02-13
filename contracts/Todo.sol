@@ -13,5 +13,9 @@ contract Todo {
  function createNewTodo(string memory _title, string memory _description) external{
     todoList.push(toDo(_title, _description, false));
  }
+ function toggleCompleted(uint _i) external{
+    todoList[_i].completed =  !todoList[_i].completed;
+ }
+ 
 }
 
