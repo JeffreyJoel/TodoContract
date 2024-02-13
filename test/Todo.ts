@@ -20,17 +20,29 @@ describe("Todo", function () {
     return { toDo };
   }
 
-  describe("Create and check todo item", function () {
+  describe("Create and update todo item", function () {
     it("Should create and check the value of a todo item", async function () {
       const { toDo } = await loadFixture(deployTodoFixture);
       const addToList = await toDo.createNewTodo("wash", "Sample Description");
-      // const updateTitle = await toDo.updateTitle(0, "wash");
-      // const updateDescription = await toDo.updateDescription(1, "Some description");
 
       expect((await toDo.todoList(0)).title).to.equal("wash");
       expect((await toDo.todoList(0)).description).to.equal("Sample Description");
       expect((await toDo.todoList(0)).completed).to.equal(false);
-      // expect(await updateTitle).to.equal(1, "Some description");
+      
+    }
+    
+    );
+    it("Should update the values of a todo item", async function () {
+      const { toDo } = await loadFixture(deployTodoFixture);
+      const addToList = await toDo.createNewTodo("wash", "Sample Description");
+
+      const updateTitle = await toDo.updateTitle(0, "New task");
+      const updateDescription = await toDo.updateDescription(0, "A new Description");
+      expect((await toDo.todoList(0)).title).to.equal("New task");
+
+      expect((await toDo.todoList(0)).description).to.equal("A new Description")
+    
     });
   });
+  
 });
