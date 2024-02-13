@@ -19,5 +19,9 @@ contract Todo {
   function deleteTodoItem(uint _i) external{
     delete todoList[_i];
  }
+   function updateTitle(uint _i, string memory _newTitle) external{
+    todoList[_i].title = _newTitle;
+ }
+
 }
 
