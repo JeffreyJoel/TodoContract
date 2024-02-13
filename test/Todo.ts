@@ -45,6 +45,15 @@ describe("Todo", function () {
       expect((await toDo.todoList(0)).completed).to.equal(true);
 
     });
+    it("Should delete a todo item", async function () {
+      const { toDo } = await loadFixture(deployTodoFixture);
+      const addToList = await toDo.createNewTodo("wash", "Sample Description");
+
+      const deleteTodo = await toDo.deleteTodoItem(0);
+
+      expect((await toDo.todoList(0)).length).to.equal(0);
+
+    });
   });
   
 });
