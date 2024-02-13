@@ -16,6 +16,8 @@ contract Todo {
  function toggleCompleted(uint _i) external{
     todoList[_i].completed =  !todoList[_i].completed;
  }
- 
+  function deleteTodoItem(uint _i) external{
+    delete todoList[_i];
+ }
 }
 
