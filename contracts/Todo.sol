@@ -8,6 +8,10 @@ contract Todo {
         string description;
         bool completed;
     }
+ toDo[] public todoList;
 
+ function createNewTodo(string memory _title, string memory _description) external{
+    todoList.push(toDo(_title, _description, false));
+ }
 }
 
